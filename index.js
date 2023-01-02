@@ -30,6 +30,14 @@ const run = async () => {
             res.send({ status: true, data: product });
         });
 
+        app.post("/product", async (req, res) => {
+            const product = req.body;
+
+            const result = await productCollection.insertOne(product);
+
+            res.send(result);
+        });
+
     } finally {
     }
 };
